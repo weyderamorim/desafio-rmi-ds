@@ -1,0 +1,52 @@
+﻿version: 2
+
+models:
+  - name: stg_aluno
+    description: "Tabela de alunos com padronização de campos e limpeza básica."
+    columns:
+      - name: id_aluno
+        description: "Identificador único do aluno."
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_escola
+    description: "Tabela de escolas com padronização de atributos institucionais."
+    columns:
+      - name: id_escola
+        description: "Identificador único da escola."
+        tests:
+          - not_null
+
+  - name: stg_turma
+    description: "Tabela de turmas contendo informações de ano, turma e alunos vinculados."
+    columns:
+      - name: id_turma
+        description: "Identificador único da turma."
+        tests:
+          - not_null
+
+  - name: stg_frequencia
+    description: "Tabela de frequência dos alunos, tratada para garantir valores válidos."
+    columns:
+      - name: id_aluno
+        description: "Identificador do aluno."
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_aluno')
+                field: id_aluno
+
+      - name: id_turma
+        description: "Identificador da turma."
+        tests:
+          - not_null
+
+      - name: frequencia
+        description: "Percentual de presença do aluno na disciplina (0 a 100)."
+        tests:
+          - not_null
+
+  - name: stg_avaliacao
+    description: "Tabela de avaliações com notas dos alunos por disciplina."

@@ -1,0 +1,12 @@
+﻿version: 2
+
+sources:
+  - name: raw
+    database: projeto1-ymohiw
+    schema: rmi_case
+    tables:
+      - name: aluno
+      - name: escola
+      - name: turma
+      - name: frequencia
+      - name: avaliacao

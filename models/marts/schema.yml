@@ -1,0 +1,18 @@
+﻿# Esse modelo calcula a frequência média por aluno e turma,
+# servindo como base para análises de absenteísmo.
+
+version: 2
+
+models:
+  - name: mart_educacao__absenteismo
+    description: "Modelo analítico para identificar absenteísmo crônico por aluno."
+
+    columns:
+      - name: id_aluno
+        description: "Identificador do aluno"
+
+      - name: taxa_absenteismo_cronico
+        description: "Percentual de ausência do aluno"
+
+        tests:
+          - not_null

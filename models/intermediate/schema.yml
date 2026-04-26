@@ -1,0 +1,15 @@
+﻿version: 2
+
+models:
+  - name: int_educacao__aluno_frequencia
+    description: "Modelo que combina dados de frequência e turma para consolidar presença dos alunos."
+
+    columns:
+      - name: id_aluno
+        description: "Identificador do aluno"
+
+      - name: id_turma
+        description: "Identificador da turma"
+
+      - name: frequencia_media
+        description: "Média de frequência do aluno na turma"
